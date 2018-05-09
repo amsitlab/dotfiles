@@ -5,6 +5,7 @@ DOTFILES_DIR="$HOME/.dotfiles"
 DOTFILES=${DOTFILES_DIR/${HOME}\//}
 DATETIME=`date +'%Y%m%d-%H%M%S'`
 BACKUPDIR="${HOME}/backup_${DATETIME}"
+IGNORES=(.git)
 
 echo "This script will create symlink"
 echo "Old file with same name will be moved to $BACKUPDIR";
@@ -23,12 +24,14 @@ if [[ $ACC =~ ^[Yy]$ ]]; then
 		mkdir $BACKUPDIR
 	fi
  
+	for I in $IGNORES;
+	do
 	for LIST in $DOTFILES_DIR/.*;
 	do
 		PATHNAME=${LIST/$DOTFILES\//}
 		NAME=${PATHNAME/$HOME\//}
 
-		if [ $NAME == "." -o $NAME == ".." ]; then
+		if [ $NAME == "." -o $NAME == ".." -o $NAME == $I ]; then
 			continue
 		fi
 	
@@ -43,6 +46,7 @@ if [[ $ACC =~ ^[Yy]$ ]]; then
 		ln -s $LIST $PATHNAME
 	
 
+	done
 	done
 else
 	exit
