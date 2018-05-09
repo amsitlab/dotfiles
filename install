@@ -6,7 +6,7 @@ DOTFILES=${DOTFILES_DIR/${HOME}\//}
 DATETIME=`date +'%Y%m%d-%H%M%S'`
 BACKUPDIR="${HOME}/backup_${DATETIME}"
 
-echo "This script can create symlink"
+echo "This script will create symlink"
 echo "Old file with same name will be moved to $BACKUPDIR";
 echo "Confirm (y/n):"
 read ACC
@@ -43,8 +43,6 @@ if [[ $ACC =~ ^[Yy]$ ]]; then
 		ln -s $LIST $PATHNAME
 	
 
-		echo $PATHNAME
-		echo $NAME
 	done
 else
 	exit
