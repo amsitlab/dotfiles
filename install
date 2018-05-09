@@ -1,0 +1,52 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+
+DOTFILES_DIR="$HOME/.dotfiles"
+DOTFILES=${DOTFILES_DIR/${HOME}\//}
+DATETIME=`date +'%Y%m%d-%H%M%S'`
+BACKUPDIR="${HOME}/backup_${DATETIME}"
+
+echo "This script can create symlink"
+echo "Old file with same name will be moved to $BACKUPDIR";
+echo "Confirm (y/n):"
+read ACC
+
+if [[ $ACC =~ ^[Yy]$ ]]; then
+        if [ -d $BACKUPDIR ]; then
+
+		echo "$BACKUPDIR is exists."
+		echo "Install failed."
+		echo "Program exited."
+
+		exit
+	else
+		mkdir $BACKUPDIR
+	fi
+ 
+	for LIST in $DOTFILES_DIR/.*;
+	do
+		PATHNAME=${LIST/$DOTFILES\//}
+		NAME=${PATHNAME/$HOME\//}
+
+		if [ $NAME == "." -o $NAME == ".." ]; then
+			continue
+		fi
+	
+		if [ -r $PATHNAME ]; then
+			echo "move $PATHNAME to ${BACKUPDIR}/${NAME}"
+			echo
+			mv $PATHNAME $BACKUPDIR
+		fi
+
+		echo "Creating symlink $PATHNAME"
+		echo
+		ln -s $LIST $PATHNAME
+	
+
+		echo $PATHNAME
+		echo $NAME
+	done
+else
+	exit
+fi
+
