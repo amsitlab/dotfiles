@@ -1,0 +1,52 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+ARR=(`find ~/ -type d -name "backup_*"`)
+ARRLEN=${#ARR[@]}
+DOTFILES=~/.dotfiles
+
+
+for(( I=0; I<$ARRLEN; I++ ));
+do
+	echo "($I) ${ARR[$I]/$HOME\//}"
+done
+
+echo "Choose number to install backup file:"
+read ACC
+
+if [ "$ACC" -gt "$ARRLEN" ]; then
+	echo "Unavailable backup file."
+	echo "Program exited."
+	exit
+fi
+
+BKUP=${ARR[$ACC]}
+
+for DOT in $DOTFILES/.*;
+do
+	NAME=${DOT/$DOTFILES\//}
+	INHOME=$HOME/$NAME
+	if [ "$NAME" == "." -o "$NAME" == ".." ]; then
+		continue
+	fi
+
+	rm -fr $INHOME
+	echo "Removing $INHOME"
+done
+
+
+echo
+echo
+
+for B in $BKUP/.*;
+do
+	NAME=${B/$HOME\/backup_*\//}
+
+	if [ "$NAME" == "." -o "$NAME" == ".." ]; then
+		continue
+	fi
+
+
+	mv $B ${B/backup_*\//}
+	echo "Installing $NAME from backup"
+
+done
