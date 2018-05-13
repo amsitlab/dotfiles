@@ -8,3 +8,5 @@ INC="${HOME}/.dotfiles/bash-powerline.sh"
 test -f "$INC" && \
 	source $INC
 unset INC
+test -f ~/.dotfiles/aliases && \
+	source ~/.dotfiles/aliases
