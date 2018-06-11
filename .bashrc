@@ -10,3 +10,8 @@ test -f "$INC" && \
 unset INC
 test -f ~/.dotfiles/aliases && \
 	source ~/.dotfiles/aliases
+
+LAUNCH_APP_FILE=${EXTERNAL_STORAGE}/termuxlauncher/.apps-launcher
+test -f $LAUNCH_APP_FILE && \
+	source $LAUNCH_APP_FILE;
+
