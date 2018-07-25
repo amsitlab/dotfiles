@@ -9,6 +9,6 @@ check-wa(){
 }
 
 
-test -f $HOME/bin/composer && \
-	alias composer=$(php $HOME/bin/composer)
+test -f ~/bin/composer && \
+	alias composer="php ~/bin/composer"
 
