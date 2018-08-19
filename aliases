@@ -4,11 +4,11 @@ test -f ~/tools/commandex/bin/commandex && \
 alias tele="am start -n com.android.chrome/com.google.android.apps.chrome.Main -d \"https://web.telegram.org\" --user 0 &> /dev/null; printf \"Launch telegram\""
 alias github="am start -n com.android.chrome/com.google.android.apps.chrome.Main -d \"https://github.com/amsitlab\" --user 0 &> /dev/null; printf \"Launch github\""
 check-wa(){
-	am start -n com.android.chrome/com.google.android.apps.chrome.Main -d "https://api.whatsapp.com/send?phone=${1}" --user 0 &> /dev/null
+	am start -n com.whatsapp/.TextAndDirectChatDeepLink -d "https://api.whatsapp.com/send?phone=${1}" --user 0 &> /dev/null
 	printf "Check Whatsapp number"
 }
 
 
 test -f ~/bin/composer && \
 	alias composer="php ~/bin/composer"
-
+alias apt='apt -o APT::Keep-Downloaded-Packages="true"'
