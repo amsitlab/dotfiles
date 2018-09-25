@@ -3,11 +3,26 @@ test -f ~/tools/commandex/bin/commandex && \
 
 alias tele="am start -n com.android.chrome/com.google.android.apps.chrome.Main -d \"https://web.telegram.org\" --user 0 &> /dev/null; printf \"Launch telegram\""
 alias github="am start -n com.android.chrome/com.google.android.apps.chrome.Main -d \"https://github.com/amsitlab\" --user 0 &> /dev/null; printf \"Launch github\""
+
 check-wa(){
 	am start -n com.whatsapp/.TextAndDirectChatDeepLink -d "https://api.whatsapp.com/send?phone=${1}" --user 0 &> /dev/null
 	printf "Check Whatsapp number"
 }
 
+backup-deb() {
+if [ -d "/storage/sdcard0/" ]; then
+	BACKUPDIR="/storage/sdcard0/archives/debs"
+else
+	termux-setup-storage
+	BACKUPDIR="${EXTERNAL_STORAGE}/archives/debs"
+fi
+
+mkdir -p $BACKUPDIR
+
+find $PREFIX/var/cache/apt/archives -type f -name "*deb" -exec mv {} $BACKUPDIR \;
+
+
+}
 
 test -f ~/bin/composer && \
 	alias composer="php ~/bin/composer"
