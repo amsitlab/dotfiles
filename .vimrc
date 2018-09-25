@@ -7,4 +7,4 @@ call plug#begin()
 call plug#end()
 colorscheme pablo
 set background=dark
-
+set mouse=a
