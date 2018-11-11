@@ -5,7 +5,11 @@ alias tele="am start -n com.android.chrome/com.google.android.apps.chrome.Main -
 alias github="am start -n com.android.chrome/com.google.android.apps.chrome.Main -d \"https://github.com/amsitlab\" --user 0 &> /dev/null; printf \"Launch github\""
 
 check-wa(){
-	am start -n com.whatsapp/.TextAndDirectChatDeepLink -d "https://api.whatsapp.com/send?phone=${1}" --user 0 &> /dev/null
+	local number=${1#0}		# remove "0" from first position
+	number=${number//-/}		# remove all character "-"
+	number=${number#+}		# remove "+" from first position
+	number=62${number#62}	
+	am start -n com.whatsapp/.TextAndDirectChatDeepLink -d "https://api.whatsapp.com/send?phone=${number}" --user 0 &> /dev/null
 	printf "Check Whatsapp number"
 }
 
