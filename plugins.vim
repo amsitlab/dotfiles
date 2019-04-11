@@ -5,6 +5,8 @@ Plug 'jrozner/vim-antlr' , {'on': []}
 "android project
 Plug 'vim-scripts/android.vim', {'for': 'java'}
 
+Plug 'editorconfig/editorconfig-vim'
+
 "deoplete start here
 "Plug 'roxma/nvim-yarp'
 "Plug 'roxma/vim-hug-neovim-rpc'
@@ -12,4 +14,5 @@ Plug 'vim-scripts/android.vim', {'for': 'java'}
 "Plug 'Shougo/deoplete.nvim'
 " uncomment ^^^^^^^^^^^^^^ I have install manualy
 "Plug 'Shougo/neco-syntax'
-Plug 'maralla/completor.vim',
+Plug 'maralla/completor.vim'
+Plug 'benmills/vimux'

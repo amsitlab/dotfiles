@@ -26,4 +26,6 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
 call plug#end()
 
-
+"Vimmux in noral mode
+nnoremap <silent> cmd :VimuxPromptCommand<CR>
+nnoremap <silent> lcmd :VimuxRunLastCommand<CR>
