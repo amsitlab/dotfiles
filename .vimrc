@@ -1,5 +1,5 @@
 set number
-
+set shell=bash
 colorscheme pablo
 set background=dark
 set mouse=a
@@ -14,7 +14,17 @@ call plug#begin()
 	   source ~/.dotfiles/plugins.vim
    endif
 " -------------------------completor.vim----------------
-let g:completor_clang_binary = '/data/data/com.termux/files/usr/bin/clang'
+
+"let g:completor_clang_binary = system('which clang')
+
+"let g:completor_python_binary = system('which python')
+"if (g:completor_python_binary ==# '') == 1
+"	let g:completor_python_binary = system("which python3")
+"endif
+"if (g:completor_python_binary ==# '') == 1
+"	let g:completor_python_binary = system('which python2')
+"endif
+
 
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
