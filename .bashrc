@@ -15,6 +15,9 @@ LAUNCH_APP_FILE=${EXTERNAL_STORAGE}/termuxlauncher/.apps-launcher
 test -f $LAUNCH_APP_FILE && \
 	source $LAUNCH_APP_FILE;
 
+[ -d ~/.bin ] && PATH="${PATH}:~/.bin"
+[ -d ~/.bin/jvm ] && PATH="${PATH}:~/.bin/jvm"
+
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/data/data/com.termux/files/home/.sdkman"
