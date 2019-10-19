@@ -13,7 +13,7 @@ let s:proot_commands = [
          \'-b', '/proc/',
          \'-b', '/storage/',
          \'-b', expand($HOME),
-         \'-w', expand($HPME),
+         \'-w', expand($HOME),
          \'/usr/bin/env',
          \'HOME=/root/',
          \'TERMUX_HOME=' . expand($HOME),
@@ -52,9 +52,9 @@ let g:lspconf.__meta__ = {
          \"auto_enable": 1,
 \}
 function g:lspconf.__meta__.new(ftyp, name, cmd, whitelist)
-   let self.data.name = a:name
-   let self.data.cmd = a:cmd
-   let self.data.whitelist = a:whitelist
+   "let self.data.name = a:name
+   "let self.data.cmd = a:cmd
+   "let self.data.whitelist = a:whitelist
    let g:lspconf[a:ftyp] = {
          \'data': {
             \'name': a:name,
