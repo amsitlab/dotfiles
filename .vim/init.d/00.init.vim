@@ -1,3 +1,6 @@
+" File              : 00.init.vim
+" Date              : 17.12.2019
+" Last Modified Date: 17.12.2019
 " Main {{{
 """"""""""""""""""""""""""""""""""""""
 filetype on
@@ -73,10 +76,10 @@ if (!filereadable(g:vim_plug_file))
   endif
 endif
 call plug#begin("~/.vim/plugged")
-
+Plug 'jiangmiao/auto-pairs'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-airline/vim-airline'
-Plug 'amsitlab/proot.vim'
+"Plug 'amsitlab/proot.vim'
 Plug 'shougo/neco-vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/async.vim'
@@ -85,7 +88,8 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 "Plug 'dense-analysis/ale'
 "Plug 'natebosch/vim-lsc'
 Plug 'prabirshrestha/asyncomplete-necovim.vim'
-Plug 'felixfbecker/php-language-server', { 'do': 'composer install && composer run-script parse-stubs' }
+"Plug 'felixfbecker/php-language-server', { 'do': 'composer install && composer run-script parse-stubs' }
+Plug 'alpertuna/vim-header'
 call plug#end()
 
 " }}}
