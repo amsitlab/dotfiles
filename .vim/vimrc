@@ -1,3 +1,9 @@
+" File              : vimrc
+" Date              : 17.12.2019
+" Last Modified Date: 17.12.2019
+" File              : vimrc
+" Date              : 17.12.2019
+" Last Modified Date: 17.12.2019
 "let s:init_d = expand("~/.vim/init.d")
 "if !isdirectory(s:init_d)
 "	let s:init_d = expand("~/.dotfiles/.vim/init.d")
@@ -46,8 +52,8 @@ function! g:init.plug_exists(name)
    if !has_key(l:plugs, a:name)
       return 0
    endif
-   let l:directory = l:plugs[a:name].dir
-   return isdirectory(l:directory) && stridx(&runtimepath, l:directory) >= 0
+   let l:directory = '/' . trim(l:plugs[a:name].dir, '/')
+   return isdirectory(l:directory) && index(split(&runtimepath, ','), l:directory) >= 0
 endfunction
 
 call g:init.load_files()
