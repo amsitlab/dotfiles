@@ -1,3 +1,7 @@
+; vim:ft=dosini
+; File              : .editorconfig
+; Date              : 17.12.2019
+; Last Modified Date: 17.12.2019
 
 root = true
 
@@ -13,5 +17,13 @@ insert_final_newline = true
 trailing_white_space = false
 
 [*.{vim,vimrc}]
+indent_style = space
+indent_size = 3
+
+[*.{sh,bash,fish,daah}]
+indent_style = space
+indent_size = 3
+
+[*.{lua}]
 indent_style = space
 indent_size = 3
