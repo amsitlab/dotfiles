@@ -1,11 +1,7 @@
 #!/bin/bash
 # File              : .bashrc
-# Date              : 17.12.2019
-# Last Modified Date: 17.12.2019
-# File              : .bashrc
-# Date              : 17.12.2019
-# Last Modified Date: 17.12.2019
-
+# Date              : 21.12.2019
+# Last Modified Date: 21.12.2019
 if [ -r /proc/meminfo ]; then
    echo -e "\033[36m"
    egrep 'Mem|Cac|Swa' /proc/meminfo
@@ -23,8 +19,11 @@ test -f $LAUNCH_APP_FILE && \
    source $LAUNCH_APP_FILE;
 
 register_local_path() {
-   if [ -d "${HOME}/.local/bin" ]; then
-      export PATH=${PATH/:${HOME}\/.local/bin/}:${HOME}/.local/bin
+   if [ -d "${HOME}/.local/bin" ];then
+      p=${HOME}/.local/bin
+      PATH=${PATH//${p//\//\\\/}/}:$p
+      PATH=${PATH//::/:}
+      export PATH=${PATH/}:${HOME}/.local/bin
    fi
 }
 
