@@ -1,4 +1,8 @@
 ; vim:ft=dosini
+; File  : .editorconfig
+; Author: Amsid S <amsit14@gmail.com>
+; Date  : 06.12.2020
+; vim:ft=dosini
 ; File              : .editorconfig
 ; Date              : 17.12.2019
 ; Last Modified Date: 17.12.2019
@@ -27,3 +31,6 @@ indent_size = 3
 [*.{lua}]
 indent_style = space
 indent_size = 3
+
+[{makefile,Makefile,**.mk}]
+indent_style = tab

@@ -1,0 +1,7 @@
+# File  : .tmux.conf
+# Author: Amsid S <amsit14@gmail.com>
+# Date  : 06.12.2020
+set -g default-terminal "xterm-256color"
+
+#set -g status-fg green
+#set -g status-bg black

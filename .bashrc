@@ -1,7 +1,10 @@
 #!/bin/bash
-# File              : .bashrc
-# Date              : 21.12.2019
-# Last Modified Date: 21.12.2019
+# File  : .bashrc
+# Author: Amsid S <amsit14@gmail.com>
+# Date  : 04.06.2020
+# File  : .bashrc
+# Date  : 21.12.2019
+# Last Modified Date  : 21.12.2019
 if [ -r /proc/meminfo ]; then
    echo -e "\033[36m"
    egrep 'Mem|Cac|Swa' /proc/meminfo
@@ -33,3 +36,7 @@ register_local_path
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/data/data/com.termux/files/home/.sdkman"
 [[ -s "/data/data/com.termux/files/home/.sdkman/bin/sdkman-init.sh" ]] && source "/data/data/com.termux/files/home/.sdkman/bin/sdkman-init.sh"
+
+# [ set defaut editor ]
+EDITOR=${HOME}/bin/termux-file-editor
+test -f $EDITOR && source $EDITOR

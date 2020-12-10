@@ -1,6 +1,9 @@
-" File              : 00.init.vim
-" Date              : 17.12.2019
-" Last Modified Date: 17.12.2019
+" File  : 00.init.vim
+" Author: Amsid S <amsit14@gmail.com>
+" Date  : 03.06.2020
+" File  : 00.init.vim
+" Date  : 17.12.2019
+" Last Modified Date  : 17.12.2019
 " Main {{{
 """"""""""""""""""""""""""""""""""""""
 filetype on
@@ -88,8 +91,17 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 "Plug 'dense-analysis/ale'
 "Plug 'natebosch/vim-lsc'
 Plug 'prabirshrestha/asyncomplete-necovim.vim'
-"Plug 'felixfbecker/php-language-server', { 'do': 'composer install && composer run-script parse-stubs' }
+Plug 'felixfbecker/php-language-server', { 'do': 'composer install && composer run-script parse-stubs' }
 Plug 'alpertuna/vim-header'
+Plug 'jakwings/vim-terra'
+Plug 'bioSyntax/bioSyntax-vim'
+if (has('nvim'))
+   Plug 'nvim-lua/plenary.nvim'
+   Plug 'nvim-lua/popup.nvim'
+endif
+
+Plug 'vim-airline/vim-airline-themes'
+
 call plug#end()
 
 " }}}
