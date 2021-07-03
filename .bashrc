@@ -37,6 +37,14 @@ register_local_path
 export SDKMAN_DIR="/data/data/com.termux/files/home/.sdkman"
 [[ -s "/data/data/com.termux/files/home/.sdkman/bin/sdkman-init.sh" ]] && source "/data/data/com.termux/files/home/.sdkman/bin/sdkman-init.sh"
 
+if [ -x "${HOME}/bin" ] ; then
+   export PATH=${PATH}:~/bin
+fi
+if [ -x "${PREFIX}/local/bin" ] ; then
+   export PATH=${PATH}:${PREFIX}/local/bin
+fi
+
 # [ set defaut editor ]
 EDITOR=${HOME}/bin/termux-file-editor
 test -f $EDITOR && source $EDITOR
+

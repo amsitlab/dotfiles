@@ -59,11 +59,16 @@ set fileformat=unix
 "set softtabstop=2
 "set tabstop=2
 
+" [Term] set no line number
+autocmd TermOpen * setlocal nonumber
+
+" [Python]
 let g:python3_host_prog = expand($PREFIX . "/bin/python3")
 if !executable(g:python3_host_prog)
    let g:python3_host_prog = "/usr/bin/python3"
 endif
 " }}}
+
 """"""""""""""""""""""""""""""""""""""
 
 " Vim-plug {{{
@@ -79,19 +84,16 @@ if (!filereadable(g:vim_plug_file))
   endif
 endif
 call plug#begin("~/.vim/plugged")
+
 Plug 'jiangmiao/auto-pairs'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-airline/vim-airline'
-"Plug 'amsitlab/proot.vim'
 Plug 'shougo/neco-vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-"Plug 'dense-analysis/ale'
-"Plug 'natebosch/vim-lsc'
 Plug 'prabirshrestha/asyncomplete-necovim.vim'
-Plug 'felixfbecker/php-language-server', { 'do': 'composer install && composer run-script parse-stubs' }
 Plug 'alpertuna/vim-header'
 Plug 'jakwings/vim-terra'
 Plug 'bioSyntax/bioSyntax-vim'
@@ -101,7 +103,11 @@ if (has('nvim'))
 endif
 
 Plug 'vim-airline/vim-airline-themes'
-
+Plug 'amsitlab/psalm-phar'
+Plug 'phpactor/phpactor', {
+         \'do': 'composer install --no-dev'
+   \}
+Plug 'mattn/vim-lsp-settings'
 call plug#end()
 
 " }}}

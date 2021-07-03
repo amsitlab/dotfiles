@@ -1,10 +1,5 @@
-" File              : vimrc
-" Date              : 17.12.2019
-" Last Modified Date: 17.12.2019
-" File              : vimrc
-" Date              : 17.12.2019
-" Last Modified Date: 17.12.2019
-"let s:init_d = expand("~/.vim/init.d")
+
+let s:init_d = expand("~/.vim/init.d")
 "if !isdirectory(s:init_d)
 "	let s:init_d = expand("~/.dotfiles/.vim/init.d")
 "endif
@@ -13,6 +8,7 @@
 "for f in split(glob(s:init_d . "/*.vim"))
 "	exe 'source' . f
 "endfor
+
 
 let g:init = {}
 let g:init.directories = [
@@ -38,6 +34,9 @@ function g:init.load_files(...)
    endif
    let l:pattern = get(a:, "2", "/*.vim")
    for l:file in split(glob(l:dir . l:pattern))
+      if l:file[-4:] ==# '.bak'
+         continue
+      end
       if filereadable(expand(l:file))
          exe 'source' . l:file
       endif

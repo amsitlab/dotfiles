@@ -1,30 +1,25 @@
+" File  : 01.vim-lsp.vim
+" Author: Amsid S <amsit14@gmail.com>
+" Date  : 19.02.2021
 " main {{{
 """"""""""""""""""""""""""""""""""""""
-let s:proot_rootfs_path = '/data/data/com.termux/files/alpinelinux/3.10.2'
+let g:lsp_async_complete = 1
 
-let s:proot_commands = [
-         \expand($PREFIX . '/bin/proot'),
-         \'--link2symlink',
-         \'-0',
-         \'-r',
-         \s:proot_rootfs_path,
-         \'-b', '/dev/',
-         \'-b', '/sys/',
-         \'-b', '/proc/',
-         \'-b', '/storage/',
-         \'-b', expand($HOME),
-         \'-w', expand($HOME),
-         \'/usr/bin/env',
-         \'HOME=/root/',
-         \'TERMUX_HOME=' . expand($HOME),
-         \'TERM=xterm',
-         \'LANG=en_US.UTF-8',
-         \'PATH=/bin:/usr/bin:/sbin:/usr/sbin',
-\]
 
-if g:init.plug_exists('proot.vim')
-   let s:proot_commands = proot#commands()
-endif
+
+"function! s:check_back_space() abort
+"   set omnifunc=lsp#complete
+"    let col = col('.') - 1
+"    return !col || getline('.')[col - 1]  =~ '\s'
+"endfunction
+"
+"inoremap <silent><expr> <TAB>
+"  \ pumvisible() ? "\<C-n>" :
+"  \ <SID>check_back_space() ? "\<TAB>" :
+"  \ asyncomplete#force_refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+
 
 if !g:init.plug_exists("vim-lsp")
    echohl ErrorMsg
@@ -88,6 +83,9 @@ call g:lspconf.__meta__.new(
          \]},
          \['python']
 \)
+
+
+
 call g:lspconf.__meta__.new(
          \'lua',
          \"Lua Language Server",
@@ -99,47 +97,48 @@ call g:lspconf.__meta__.new(
          \['lua']
 \)
 
-""""""""""""""""""""""""""""""""""""""
-let g:lspconf.jdtls = get(g:lspconf,"jdtls", {
-         \"path": "/storage/sdcard0/archives/jdt-ls",
-         \"config_path": "",
-         \"launcher": "",
-         \"java_executable": "java",
-   \})
-let g:lspconf.jdtls.config_path = empty(g:lspconf.jdtls.config_path) ? expand(g:lspconf.jdtls.path . "/config_linux") : g:lspconf.jdtls.config_path
 
-let g:lspconf.jdtls.launcher = empty(g:lspconf.jdtls.launcher) ? expand(g:lspconf.jdtls.path . "/plugins/org.eclipse.equinox.launcher_1.5.500.v20190715-1310.jar") : g:lspconf.jdtls.launcher
+let g:php_host_prog = get(g:, 'php_host_prog', 'php')
+if executable(g:php_host_prog)
 
-let g:lspconf.jdtls.commands = s:proot_commands + [
-            \g:lspconf.jdtls.java_executable,
-            \"-Declipse.application=org.eclipse.jdt.ls.core.id1",
-            \"-Dosgi.bundles.defaultStartLevel=4",
-            \"-Declipse.product=org.eclipse.jdt.ls.core.product",
-            \"-noverify",
-            \'-Dfile.encoding=UTF-8',
-            \"-Xmx1G",
-            \"-jar",
-            \g:lspconf.jdtls.launcher,
-            \"-configuration",
-            \g:lspconf.jdtls.config_path,
-            \"-data",
-            \getcwd(),
-\]
-call g:lspconf.__meta__.new(
-         \'java',
-         \"Eclipse JDTLS",
-         \{ server_info -> g:lspconf.jdtls.commands },
-         \["java",]
-\)
+"  call g:lspconf.__meta__.new(
+"           \'php',
+"           \'psalm language server',
+"           \{
+"              \server_info -> [
+"                 \&shell,
+"                 \&shellcmdflag,
+"                 \g:php_host_prog,
+"                 \'~/.composer/vendor/vimeo/psalm/psalm-language-server',
+"                 \'--verbose',
+"                 \'\--enable-autocomplete=true'
+"              \]
+"           \},
+"           \['php']
+"  \)
+"
 
-call g:lspconf.__meta__.new(
-         \'php',
-         \'Php language server',
-         \{ server_info -> [
-            \'php',
-            \expand('~/.vim/plugged/php-language-server/bin/php-language-server.php'),
-            \'--memory-limit=256M',
-         \]},
-         \['php']
+"   call g:lspconf.__meta__.new(
+"            \'php',
+"            \'Phpactor',
+"            \{
+"               \server_info -> [
+"                  \&shell,
+"                  \&shellcmdflag,
+"                  \g:php_host_prog,
+"                  \g:phpactorbinpath,
+"                  \'language-server'
+"               \]
+"            \},
+"            \['php']
+"   \)
+
+end
+
+
+
+let g:vimlsp_serverpath = get(
+   \g:, 'vimlsp_serverpath',
+   \expand('<sfile>:p:h') . '/vim-lsp'
 \)
 
