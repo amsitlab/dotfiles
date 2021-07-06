@@ -65,7 +65,7 @@ autocmd TermOpen * setlocal nonumber
 " [Python]
 let g:python3_host_prog = expand($PREFIX . "/bin/python3")
 if !executable(g:python3_host_prog)
-   let g:python3_host_prog = "/usr/bin/python3"
+  let g:python3_host_prog = "/usr/bin/python3"
 endif
 " }}}
 
@@ -98,15 +98,15 @@ Plug 'alpertuna/vim-header'
 Plug 'jakwings/vim-terra'
 Plug 'bioSyntax/bioSyntax-vim'
 if (has('nvim'))
-   Plug 'nvim-lua/plenary.nvim'
-   Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-lua/popup.nvim'
 endif
 
 Plug 'vim-airline/vim-airline-themes'
 Plug 'amsitlab/psalm-phar'
 Plug 'phpactor/phpactor', {
-         \'do': 'composer install --no-dev'
-   \}
+      \'do': 'composer install --no-dev'
+      \}
 Plug 'mattn/vim-lsp-settings'
 call plug#end()
 
