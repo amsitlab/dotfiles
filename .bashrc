@@ -1,10 +1,3 @@
-#!/bin/bash
-# File  : .bashrc
-# Author: Amsid S <amsit14@gmail.com>
-# Date  : 04.06.2020
-# File  : .bashrc
-# Date  : 21.12.2019
-# Last Modified Date  : 21.12.2019
 if [ -r /proc/meminfo ]; then
    echo -e "\033[36m"
    egrep 'Mem|Cac|Swa' /proc/meminfo
