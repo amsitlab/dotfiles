@@ -108,7 +108,8 @@ Plug 'phpactor/phpactor', {
       \'do': 'composer install --no-dev'
       \}
 Plug 'mattn/vim-lsp-settings'
+Plug 'preservim/nerdtree'
 call plug#end()
 
 " }}}
-""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""
