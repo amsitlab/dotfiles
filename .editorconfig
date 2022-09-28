@@ -141,7 +141,18 @@ indent_style = space
 indent_size = 2
 indent_style = space
 
+
+# C/C++
+[*.{c,c++,cxx,cpp,h,hpp,hxx,h++}]
+indent_size = 4
+indent_style = space
+
 # TMUX
 [*.{conf,tmux}]
 indent_size = 2
+indent_style = space
+
+# Teal
+[*.tl]
+indent_size = 3
 indent_style = space

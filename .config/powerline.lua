@@ -1,25 +1,21 @@
-#!/usr/bin/env lua5.3
---[[--
-File  : powerline.lua
-Author: Amsid S <amsit14@gmail.com>
-Date  : 10.12.2020
---]]--
 
 
-powerline_luapath = "/github.com/audunmg/powerline-lua"
-powerline_luapath = os.getenv("HOME") .. powerline_luapath .. "/?.lua;"
+local os = require "os"
+local HOME = os.getenv('HOME')
+local powerline_luapath = HOME .. "/github.com/audunmg/powerline-lua/"
+powerline_luapath = powerline_luapath .. "/?.lua;"
 
 
 
 package.path = package.path .. powerline_luapath
-modules = {
-	"duration",
-	"ssh",
-	"username",
-	"hostname",
-	"path",
+local modules = {
+   "duration",
+   "ssh",
+   "username",
+   "hostname",
+   "path",
   "git",
-	"exitcode",
+   "exitcode",
 }
 
 
@@ -78,7 +74,7 @@ segments = {}
 for _, module in ipairs(modules) do
   mod = require("powerline."..module)
 	modsegments = mod.main(params)
-	for k,seg in ipairs(modsegments) do 
+	for k,seg in ipairs(modsegments) do
 		if not (seg.text == nil or #seg.text == 0) then
 			table.insert(segments,seg)
 		end

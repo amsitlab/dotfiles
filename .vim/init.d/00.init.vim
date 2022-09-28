@@ -1,11 +1,3 @@
-" File  : 00.init.vim
-" Author: Amsid S <amsit14@gmail.com>
-" Date  : 03.06.2020
-" File  : 00.init.vim
-" Date  : 17.12.2019
-" Last Modified Date  : 17.12.2019
-" Main {{{
-""""""""""""""""""""""""""""""""""""""
 filetype on
 filetype plugin indent on
 
@@ -43,7 +35,7 @@ set binary
 set foldlevel=0
 set foldmethod=manual
 
-colorscheme pablo
+colorscheme darkblue
 
 " Default Encoding
 set encoding=utf-8
@@ -58,7 +50,7 @@ set fileformat=unix
 "set shiftwidth=2
 "set softtabstop=2
 "set tabstop=2
-
+set modeline
 " [Term] set no line number
 autocmd TermOpen * setlocal nonumber
 
@@ -109,6 +101,9 @@ Plug 'phpactor/phpactor', {
       \}
 Plug 'mattn/vim-lsp-settings'
 Plug 'preservim/nerdtree'
+Plug 'leafo/moonscript-vim'
+Plug 'teal-languege/vim-teal'
+Plug 'fpob/nette.vim'
 call plug#end()
 
 " }}}
