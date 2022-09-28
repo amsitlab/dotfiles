@@ -3,3 +3,5 @@
 .vim/plugged/**
 .vim/view/**
 .vimrc.old
+.config/github_accesstoken**
+.config/nvim/plugin/**compile**
