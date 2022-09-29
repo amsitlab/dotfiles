@@ -30,7 +30,7 @@ register_local_path() {
    fi
 }
 
-register_local_path
+#register_local_path
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
@@ -40,5 +40,5 @@ export SDKMAN_DIR="/data/data/com.termux/files/home/.sdkman"
 
 # [ set defaut editor ]
 EDITOR=${HOME}/bin/termux-file-editor
-test -f $EDITOR && export $EDITOR
+test -f $EDITOR && export EDITOR
 
