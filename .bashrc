@@ -40,5 +40,5 @@ export SDKMAN_DIR="/data/data/com.termux/files/home/.sdkman"
 
 # [ set defaut editor ]
 EDITOR=${HOME}/bin/termux-file-editor
-test -f $EDITOR && source $EDITOR
+test -f $EDITOR && export $EDITOR
 
