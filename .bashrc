@@ -15,22 +15,23 @@ LAUNCH_APP_FILE=${EXTERNAL_STORAGE}/termuxlauncher/.apps-launcher
 test -f $LAUNCH_APP_FILE && \
    source $LAUNCH_APP_FILE;
 
-register_local_path() {
-   if [ -d "${HOME}/.local/bin" ];then
-      p=${HOME}/.local/bin
-      PATH=${PATH//${p//\//\\\/}/}:$p
-      PATH=${PATH//::/:}
-      export PATH=${PATH/}:${HOME}/.local/bin
-   fi
-   if [ -x "${HOME}/bin" ] ; then
-      export PATH=${PATH}:~/bin
-   fi
-   if [ -x "${PREFIX}/local/bin" ] ; then
-      export PATH=${PATH}:${PREFIX}/local/bin
-   fi
+
+# $1 must be glob pattern like
+# /path/to/*/bin
+function register_glob_path() {
+   for p in $(ls -d $1) ; do
+      PATH=${PATH}:$p
+   done
 }
 
-#register_local_path
+default=$PATH
+PATH=${HOME}/bin                  # replace / patch
+PATH=${PATH}:${PREFIX}/local/bin  # local
+PATH=${PATH}:$default             # default/main
+PATH=${PATH}:${PREFIX}/opt        # optional
+register_glob_path ${PREFIX}/opt/*/bin
+
+
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
