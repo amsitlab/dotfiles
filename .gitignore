@@ -5,3 +5,6 @@
 .vimrc.old
 .config/github_accesstoken**
 .config/nvim/plugin/**compile**
+.config/hub
+.config/pulse
+.termux/termux.properties.orig
