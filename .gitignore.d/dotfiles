@@ -1,5 +1,8 @@
 *
 !/.bash_profile
+!/.profile
+!/.shrc
+!/.bash_env
 !/.bashrc
 !/.config/fontconfig/conf.d/10-powerline-symbols.conf
 !/.config/fontconfig/conf.d/50-enable-terminess-powerline.conf
@@ -8,8 +11,7 @@
 !/.config/mc/panels.ini
 !/.config/neofetch/config.conf
 !/.config/nvim/init.vim
-!/.config/powerline.lua
 !/.config/tmux/tmux.conf
-!/.config/xalpine/cfg.lua
+!/.config/xsh
 !/.editorconfig
 !/README.md
