@@ -13,5 +13,6 @@
 !/.config/nvim/init.vim
 !/.config/tmux/tmux.conf
 !/.config/xsh/*
+!/.config/shell/*
 !/.editorconfig
 !/README.md
