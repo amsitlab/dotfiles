@@ -12,6 +12,6 @@
 !/.config/neofetch/config.conf
 !/.config/nvim/init.vim
 !/.config/tmux/tmux.conf
-!/.config/xsh
+!/.config/xsh/*
 !/.editorconfig
 !/README.md
